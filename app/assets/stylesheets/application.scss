@@ -1,0 +1,78 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+.page-header {
+	position: relative;
+	padding-bottom: 0px;
+	&:first-child {
+		margin-top: 20px;
+	}
+}
+
+ul.actions {
+	list-style-type: none;
+	position: absolute;
+	top: 4px;
+	right: 2px;
+	li {
+		display: inline-block;
+	}
+}
+
+a.new, a.edit, a.delete {
+	@extend .btn;
+
+	&:before {
+		font-family: "FontAwesome";
+		padding-right: 0.5em;
+	}
+}
+
+a.new {
+	@extend .btn-success;
+
+	&:before {
+		@extend .fa-plus;
+	}
+}
+
+a.edit {
+	@extend .btn-primary;
+
+	&:before {
+		@extend .fa-pencil;
+	}
+}
+
+a.delete {
+	@extend .btn-danger;
+
+	&:before {
+		@extend .fa-trash;
+	}
+}
+
+#projects h2 {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 20px 0px 0px;
+}
+
+.alert-notice {
+	@extend .alert-success;
+}
+
+.alert-alert {
+	@extend .alert-danger;
+}
+
+form {
+	max-width: 500px;
+}
+
+body {
+	padding-top: 70px;
+}
+
+
