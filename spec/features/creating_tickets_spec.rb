@@ -2,7 +2,11 @@ require "rails_helper"
 
 RSpec.feature "Creating Tickets" do
 
+  let(:user) { FactoryGirl.create(:user) }
+
   before do
+    login_as(user)
+    
     FactoryGirl.create(:project, name: "Internet Explorer")
     
     visit "/"
@@ -16,6 +20,9 @@ RSpec.feature "Creating Tickets" do
     click_button "Create Ticket"
     
     expect(page).to have_content("Ticket has been created.")
+    within("#ticket #author") do
+      expect(page).to have_content("Created by #{user.email}")
+    end
   end
 
   scenario "with missing fields" do
