@@ -47,4 +47,10 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+  
+  # From Devise, add Warden feature test helpers, like login_as
+  config.include Warden::Test::Helpers, type: :feature
+  
+  # Tell Warden to reset itself after each test
+  config.after(type: :feature) { Warden.test_reset! }
 end
