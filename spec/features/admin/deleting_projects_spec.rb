@@ -19,4 +19,5 @@ RSpec.feature "Deleting projects" do
   
     expect(page).to have_no_content("Sublime Text 3")
   end
+    
 end
