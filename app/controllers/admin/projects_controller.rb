@@ -15,7 +15,7 @@ class Admin::ProjectsController < Admin::BaseController
       render "new"
     end
   end
-  
+    
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
