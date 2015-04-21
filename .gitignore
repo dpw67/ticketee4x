@@ -17,4 +17,4 @@
 /tmp
 
 # Ignore CarrierWave public file uploads
-public/uploads
+uploads
