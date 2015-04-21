@@ -26,6 +26,23 @@
 			<% end %>
 		</ul>
 	</div>
+	
+	<table id="attributes">
+	    <tr>
+	      <th>Author:</th>
+	      <td><%= @ticket.author.email %></td>
+	    </tr>
+	    <tr>
+	      <th>Created:</th>
+	      <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
+	    </tr>
+	    <% if @ticket.state.present? %>
+	      <tr>
+	        <th>State:</th>
+	        <td><%= render @ticket.state %></td>
+	      </tr>
+	    <% end %>
+	  </table>
 		
 	<%= simple_format(@ticket.description) %>
 	

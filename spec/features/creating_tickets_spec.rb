@@ -21,9 +21,11 @@ RSpec.feature "Creating Tickets" do
     click_button "Create Ticket"
     
     expect(page).to have_content("Ticket has been created.")
-    within("#ticket #author") do
-      expect(page).to have_content("Created by #{user.email}")
-    end
+    
+    within("#ticket") do
+      expect(page).to have_content "Author: #{user.email}"
+    end    
+
   end
 
   scenario "with missing fields" do
