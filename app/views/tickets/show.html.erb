@@ -4,9 +4,6 @@
 	</div>
 	
 	<div class="page-header">
-		<p id="author">
-			Created by <%= @ticket.author.email %>, <%= time_ago_in_words(@ticket.created_at) %> ago
-		</p>
 		
 		<h2><%= @ticket.title %></h2>
 		
@@ -28,21 +25,21 @@
 	</div>
 	
 	<table id="attributes">
+	  <tr>
+	    <th>Author:</th>
+	    <td><%= @ticket.author.email %></td>
+	  </tr>
+	  <tr>
+	    <th>Created:</th>
+	   	<td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
+	  </tr>
+	  <% if @ticket.state.present? %>
 	    <tr>
-	      <th>Author:</th>
-	      <td><%= @ticket.author.email %></td>
+	      <th>State:</th>
+	      <td><%= render @ticket.state %></td>
 	    </tr>
-	    <tr>
-	      <th>Created:</th>
-	      <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
-	    </tr>
-	    <% if @ticket.state.present? %>
-	      <tr>
-	        <th>State:</th>
-	        <td><%= render @ticket.state %></td>
-	      </tr>
-	    <% end %>
-	  </table>
+	  <% end %>
+	</table>
 		
 	<%= simple_format(@ticket.description) %>
 	
