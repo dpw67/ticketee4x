@@ -36,7 +36,7 @@
 	  <% if @ticket.state.present? %>
 	    <tr>
 	      <th>State:</th>
-	      <td><%= render @ticket.state %></td>
+	      <td><span id="state_name_id"><%= render @ticket.state %></span></td>
 	    </tr>
 	  <% end %>
 	</table>
