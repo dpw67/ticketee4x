@@ -55,4 +55,7 @@ RSpec.configure do |config|
   
   # Tell Warden to reset itself after each test
   config.after(type: :feature) { Warden.test_reset! }
+  
+  config.include Devise::TestHelpers, type: :controller
+  
 end
