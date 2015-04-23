@@ -2,6 +2,10 @@ class Ticket < ActiveRecord::Base
   
   before_create :assign_default_state
   
+  searcher do
+    label :tag, from: :tags, field: "name"
+  end
+  
   belongs_to :project
   belongs_to :author, class_name: "User"
   belongs_to :state
