@@ -8,7 +8,7 @@ RSpec.feature "Creating Tickets" do
     login_as(user)
     
     project = FactoryGirl.create(:project, name: "Internet Explorer")
-    assign_role!(user, :editor, project)
+    assign_role!(user, :manager, project)
     
     visit "/"
     click_link "Internet Explorer"
